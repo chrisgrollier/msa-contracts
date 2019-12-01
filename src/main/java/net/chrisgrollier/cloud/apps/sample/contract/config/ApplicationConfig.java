@@ -22,7 +22,7 @@ public class ApplicationConfig {
         return new Docket(DocumentationType.SWAGGER_2)
         	.select()
                   .apis(RequestHandlerSelectors
-                		  .basePackage("com.inetpsa.dvp.socle.common.sample.contract"))
+                		  .basePackage("net.chrisgrollier.cloud.apps.sample.contract"))
                   .paths(PathSelectors.any())
                   .build()
                   .pathMapping("/")
