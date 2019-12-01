@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -15,6 +16,7 @@ import net.chrisgrollier.cloud.apps.common.log.aop.support.DefaultLoggableAspect
  * This class is the Application Class.
  */
 @SpringBootApplication
+@RefreshScope
 public class ContractServiceApplication {
 
     /**
