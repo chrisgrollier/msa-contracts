@@ -46,15 +46,11 @@ public class LogUtil {
 	}
 
 	public static void debug(Logger logger, String message, Object... args) {
-		if (logger.isDebugEnabled()) {
-		}
-		debug(logger, LogData.currentBuilder(), LogType.TECH, null);
+		debug(logger, LogData.currentBuilder().message(message, args));
 	}
 
 	public static void debug(Logger logger, LogData.LogDataBuilder builder) {
-		if (logger.isDebugEnabled()) {
-			debug(logger, builder, LogType.TECH, null);
-		}
+		debug(logger, builder, LogType.TECH, null);
 	}
 
 	private static void debug(Logger logger, LogData.LogDataBuilder builder, LogType logType, Long duration) {
@@ -69,11 +65,10 @@ public class LogUtil {
 			}
 			logger.debug(line, logData.getMessageArgs());
 			releaseMdcContextMap();
-
 		}
 	}
 
-	public static void info(Logger logger, LogData.LogDataBuilder builder, LogType logType, Long duration) {
+	private static void info(Logger logger, LogData.LogDataBuilder builder, LogType logType, Long duration) {
 		if (logger.isInfoEnabled()) {
 			LogData logData = builder.build();
 			setParametersInMDC(logType, logData, duration);
