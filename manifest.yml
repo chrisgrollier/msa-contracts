@@ -1,0 +1,18 @@
+---
+applications:
+- name: contracts-server
+  memory: 736M
+  disk_quota: 256M
+  instances: 2
+  routes:
+  - route: contracts-server-bdx01.apps.eu01.cf.canopy-cloud.com
+  path: target/contracts.jar
+  buildpacks: 
+  - java_buildpack
+  stack: cflinuxfs3
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 1.8.+ } }'
+    
+  services:
+    - eureka-service
+    - contracts-database
